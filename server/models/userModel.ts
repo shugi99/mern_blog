@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import {IUser} from '../config/interface';
 
 const userSchema = new mongoose.Schema(
   {
@@ -25,11 +26,11 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      defaul: 'user', // admin
+      default: 'user', // admin
     },
     type: {
       type: String,
-      defaul: 'normal', // fast
+      default: 'register', // login
     },
   },
   {
@@ -37,4 +38,4 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('User', userSchema);
+export default mongoose.model<IUser>('user', userSchema);
